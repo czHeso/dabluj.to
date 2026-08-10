@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest something Dabuj should do
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check the [roadmap](../blob/main/README.md#roadmap) first — the
+        feature may already be planned.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the situation, not the solution.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like Dabuj to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What have you tried or considered instead?
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Does this fit Dabuj's constraints?
+      options:
+        - label: It works with local processing (no required cloud service)
+        - label: It does not require a GPU to be usable at all
+        - label: Any model it needs has a licence permitting commercial use, or that limitation is clearly acceptable

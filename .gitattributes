@@ -1,0 +1,29 @@
+# Normalise line endings to LF in the repository.
+#
+# Without this, a Windows checkout commits CRLF and a Linux one commits LF, so
+# every cross-platform contributor produces a whole-file diff. Text files are
+# stored as LF and checked out with the platform's native endings.
+* text=auto eol=lf
+
+# Shell scripts must keep LF even on Windows checkouts, or they will not run.
+*.sh text eol=lf
+
+# Windows batch files need CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary formats: never touch these.
+*.png binary
+*.jpg binary
+*.ico binary
+*.wav binary
+*.flac binary
+*.mp3 binary
+*.mp4 binary
+*.mkv binary
+*.onnx binary
+*.bin binary
+*.gguf binary
+
+# Keep generated lockfiles out of diff review and language statistics.
+frontend/package-lock.json linguist-generated=true -diff

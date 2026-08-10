@@ -1,0 +1,60 @@
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.env
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# --- Node / frontend --------------------------------------------------------
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.local
+
+# --- AI models: NEVER commit model weights ----------------------------------
+# Models are multi-gigabyte and carry their own licenses. They are downloaded
+# at runtime into the user's data directory. See docs/MODELS.md.
+models/
+*.onnx
+*.gguf
+*.bin
+*.pt
+*.safetensors
+*.ckpt
+
+# --- Application runtime data -----------------------------------------------
+# Projects, caches and logs must never land in the repository.
+projects/
+.dabuj/
+*.log
+
+# --- Media: test media and user media stay out of git -----------------------
+*.mkv
+*.mp4
+*.mov
+*.webm
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.opus
+*.ogg
+# Tiny generated fixtures are the one exception (see tests/fixtures/README.md).
+!tests/fixtures/**/*.wav
+
+# --- OS / editor ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
