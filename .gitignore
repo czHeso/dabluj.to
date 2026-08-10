@@ -1,10 +1,16 @@
+# Patterns for runtime data are ANCHORED with a leading slash so they match
+# only at the repository root. An unanchored `models/` also matches
+# `backend/src/dabuj/models/`, which would silently drop a source package from
+# every clone. See tests/unit/test_packaging.py, which guards against exactly
+# that.
+
 # --- Python -----------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *.egg-info/
 .eggs/
-build/
-dist/
+/build/
+/dist/
 .venv/
 venv/
 .env
@@ -21,10 +27,10 @@ frontend/dist/
 frontend/.vite/
 *.local
 
-# --- AI models: NEVER commit model weights ----------------------------------
-# Models are multi-gigabyte and carry their own licenses. They are downloaded
+# --- AI model weights: never committed --------------------------------------
+# Models are multi-gigabyte and carry their own licences. They are downloaded
 # at runtime into the user's data directory. See docs/MODELS.md.
-models/
+/models/
 *.onnx
 *.gguf
 *.bin
@@ -34,7 +40,8 @@ models/
 
 # --- Application runtime data -----------------------------------------------
 # Projects, caches and logs must never land in the repository.
-projects/
+/projects/
+/cache/
 .dabuj/
 *.log
 
